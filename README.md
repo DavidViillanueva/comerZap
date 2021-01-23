@@ -4,7 +4,7 @@
 
 Para hacer deploy de este sistema en un ambiente local de desarollo necesitamos tener lo siguiente:
 
-- Composer(https://getcomposer.org/) Correctamente instalado y configurado con PHP.
+- [Composer](https://getcomposer.org/) Correctamente instalado y configurado con PHP.
 - PHP 7.2.x Correctamente instalado y agregado a las variables de sistema para su uso en terminal.
 
 Para su correcto funcionamiento se deben habilitar determinadas extensiones de php, para verificar que esta todo instalado y configurado de manera correcta pueden crear un proyecto nuevo y verificar antes de iniciar este. Eso se hace con el comando:

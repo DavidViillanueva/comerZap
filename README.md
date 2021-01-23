@@ -1,62 +1,41 @@
-# CodeIgniter 4 Application Starter
+# ComerZap
 
-## What is CodeIgniter?
+## Ambiente de desarrollo
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure. 
-More information can be found at the [official site](http://codeigniter.com).
+Para hacer deploy de este sistema en un ambiente local de desarollo necesitamos tener lo siguiente:
 
-This repository holds a composer-installable app starter.
-It has been built from the 
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- Composer(https://getcomposer.org/) Correctamente instalado y configurado con PHP.
+- PHP 7.2.x Correctamente instalado y agregado a las variables de sistema para su uso en terminal.
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+Para su correcto funcionamiento se deben habilitar determinadas extensiones de php, para verificar que esta todo instalado y configurado de manera correcta pueden crear un proyecto nuevo y verificar antes de iniciar este. Eso se hace con el comando:
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/). 
+`composer create-project codeigniter4/appstarter [nombreDelProyecto]`
 
-## Installation & updates
+Una vez dentro del directorio del proyecto:
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+`php spark serve`
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+Si todo esta correctamente instalado y configurado, podremos levantar una pestaña de navegador con un proyecto de CodeIgniter funcionando. Ya hecho esto, podremos levantar este proyecto tranquilamente. 
 
-## Setup
+Primero clonamos el repositorio a nuestro equipo:
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+`git clone https://github.com/DavidViillanueva/comerZap`
 
-## Important Change with index.php
+Una vez dentro del directorio del proyecto:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+`composer install`
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+`php spark serve`
 
-**Please** read the user guide for a better explanation of how CI4 works!
-The user guide updating and deployment is a bit awkward at the moment, but we are working on it!
+Copiar el archivo `env` y renonmbrarlo `.env`
 
-## Repository Management
+## PHP Extensiones
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script. 
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.2 or higher is required, with the following extensions installed: 
 
 - [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+- [libcurl](http://php.net/manual/en/curl.requirements.php)
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+Adicionalmente las siguientes extensiones tienen que estar habilitadas
 
 - json (enabled by default - don't turn it off)
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)

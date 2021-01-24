@@ -41,3 +41,4 @@ Adicionalmente las siguientes extensiones tienen que estar habilitadas
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
 - xml (enabled by default - don't turn it off)
+- solo una prueba

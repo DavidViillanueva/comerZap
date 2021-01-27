@@ -20,7 +20,7 @@ class Commerce extends Controller
 		];
 
 		echo view('header');
-		echo view('commerce/overviewCommerce',$data );
+		echo view('comercios');
 		echo view('footer');
 		
 	}

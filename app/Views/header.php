@@ -15,7 +15,6 @@
 
 
     <link rel="stylesheet" href="assets/styles/base.css">
-    <title><?= esc($title); ?></title>
 
     <!-- css only for this View File -->
     <link rel="stylesheet" href="assets/styles/fragments/header.css">

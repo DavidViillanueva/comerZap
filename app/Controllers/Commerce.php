@@ -19,11 +19,28 @@ class Commerce extends Controller
 			'title' => 'Comercios'
 		];
 
-		echo view('header',['title' => 'Homepage']);
-		echo view('comercios');
+		echo view('header');
+		echo view('commerce/overviewCommerce',$data);
 		echo view('footer');
 		
 	}
+
+
+	// funcion para ver un comercio especifico
+	public function view($id = null)
+    {
+        $model = new CommerceModel();
+		$commerce = $model->getCommerce($id);
+		
+		$data = [
+			'title' => 'Comercio',
+			'commerce' => $commerce
+		];
+		
+		echo view('header');
+		echo view('commerce/commerce',$data);
+		echo view('footer');
+    }
 
 	//--------------------------------------------------------------------
 

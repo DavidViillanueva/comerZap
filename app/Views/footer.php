@@ -1,4 +1,4 @@
-<div class="footer__footer">
+<div class="footer__footer align-text-bottom">
 
     
     <link rel="stylesheet" href="assets/styles/fragments/footer.css">
@@ -18,8 +18,7 @@
             <span>Julio Argentino Roca 757</span>
             <span>2942-423493</span>
             <span>tese@zapala.gob.ar</span>
-            <div class="row center">
-
+            <div>
                 <a href="https://www.facebook.com/secretariaeducacionempleoproduccion"><img src="assets/img/facebook-1.png" alt=""></a>
             </div>
         </div>

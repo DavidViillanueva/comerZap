@@ -1,0 +1,18 @@
+.header__logo {
+    background: url(/assets/img/logo-big.png) top left no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 260px;
+    height: 100px;
+    margin-top: -10px;
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 767px){
+    .header__logo{
+        margin-top: 7px;
+		background: url(/assets/img/Logo.png) top left no-repeat;
+		width: 70px;
+        height: 70px;
+    }
+}

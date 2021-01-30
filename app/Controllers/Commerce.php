@@ -19,7 +19,7 @@ class Commerce extends Controller
 			'title' => 'Comercios'
 		];
 
-		echo view('header');
+		echo view('header',['title' => 'Homepage']);
 		echo view('comercios');
 		echo view('footer');
 		

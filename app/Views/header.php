@@ -15,6 +15,34 @@
 
 
     <link rel="stylesheet" href="assets/styles/base.css">
-    <title>Comer Zap</title>
+
+    <!-- css only for this View File -->
+    <link rel="stylesheet" href="assets/styles/fragments/header.css">
 </head>
 <body>
+
+<header>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-green">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="header__logo"></div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="container-fluid justify-content-end">
+            <div class="row justify-content-end">
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" href="#">Comercios</a>
+                        <a class="nav-link" href="#">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

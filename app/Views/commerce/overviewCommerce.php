@@ -16,6 +16,7 @@
         <div>
             <?= esc($commerce_item['descripcion']); ?>
         </div>
+        <p><a href="/<?= esc($commerce_item['id_comercio'], 'url'); ?>">Ver Comercio</a></p>
 
     <?php endforeach; ?>
 

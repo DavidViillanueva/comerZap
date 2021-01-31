@@ -7,39 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Nom Comercio</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" 
-          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-          aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav m-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Donde Encontrarnos</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Comercio
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="views/prueba.php">Productos</a>
-          <a class="dropdown-item" href="#">Ofertas</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
-  </div>
-</nav>-->
- Nav tabs 
+ <?php echo "Nombre del Comercio"?><!-- Esto deberia ir con una variable que traiga el nombre del comercio--> 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Inicio</a>
@@ -60,11 +28,9 @@
   ;lskdjf;asdlkfjas;dlkjf;sdlkjf;asdlkjf;askdljf;asdlkfjas;sakldfj
   ;slkdfj;sldkjfa;sdkfja;sdfkj;sadkjf;sadlkfj;sdkljf;sadlkjfas;dfkj
   ;slkdfj;sldkfjs;dlkfjsd;lkfja;sdlkfjasd;kfjsd;lfkjsd;lkfjsd;fkljs</div>
-  <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+  <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab" href="views/prueba.php"></div>
   <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">.11111111111111111111111111111111111
-  111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-  111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-  ..</div>
+  111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</div>
   <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab"></div>
 </div>
 

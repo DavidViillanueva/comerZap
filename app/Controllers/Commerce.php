@@ -21,6 +21,7 @@ class Commerce extends Controller
 
 		echo view('header');
 		echo view('comercios');
+		//echo view('prueba');
 		echo view('footer');
 		
 	}

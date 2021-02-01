@@ -24,13 +24,9 @@
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">kjsdf;a;sdkljfasd;klfjfe;aljksdf;lkjdf;alskdfjas;dlkfjasd;lkjfasd;klfjas;dlkfjasd
-  ;lskdjf;asdlkfjas;dlkjf;sdlkjf;asdlkjf;askdljf;asdlkfjas;sakldfj
-  ;slkdfj;sldkjfa;sdkfja;sdfkj;sadkjf;sadlkfj;sdkljf;sadlkjfas;dfkj
-  ;slkdfj;sldkfjs;dlkfjsd;lkfja;sdlkfjasd;kfjsd;lfkjsd;lkfjsd;fkljs</div>
+  <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">En esta primera pestaña se debera cargar informacion del comercio.</div>
   <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab" href="views/prueba.php"></div>
-  <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">.11111111111111111111111111111111111
-  111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</div>
+  <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab"></div>
   <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab"></div>
 </div>
 

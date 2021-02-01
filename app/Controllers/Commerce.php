@@ -20,8 +20,8 @@ class Commerce extends Controller
 		];
 
 		echo view('header');
-		//echo view('comercios');
-		echo view('productos');
+		//La vista overviewCommerce tiene todos los comercios
+		echo view('commerce/overviewCommerce',$data);
 		echo view('footer');
 		
 	}
@@ -39,6 +39,10 @@ class Commerce extends Controller
 		];
 		
 		echo view('header');
+		//La vista commerce tiene la data de un solo comercio
+		//no cambies esta movida migue, usa estos archivos, y si vas a hacer pruebas usa otro proyecto
+		//porque despues subis tus pruebas y es al pedo, no todos probamos lo mismo, y no todos 
+		//queremos ver tus pruebas
 		echo view('commerce/commerce',$data);
 		echo view('footer');
     }

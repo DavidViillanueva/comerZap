@@ -12,7 +12,7 @@ class ComercioModel extends Model {
     //protected $useSoftDeletes = true;
     protected $allowedFields = ['id_proveedor', 'id_domicilio','id_categoria', 'nombre_comercio','delivery', 'licencia_comercial', 'pagina_web', 'mail', 'descripcion'];
 
-    //solo hago validacion de los campos que creo es necesario validar
+    //hago validacion de algunos campos
     protected $validationRules    = [
         'nombre_comercio'=>'required|is_unique[comercio.nombre_comercio]|alpha_numeric_space|min_length[5]',
         'licencia_comercial'=>'required|is_unique[comercio.licencia_comercial]',

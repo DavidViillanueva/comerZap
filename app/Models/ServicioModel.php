@@ -13,7 +13,7 @@ class ServicioModel extends Model{
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;   //no hay que eliminar el registro, solo habria que cambiarle el estado.
 
-    protected $allowedFields = ['id_proveedor', 'id_categoria_servicio','matricula','nombre_fantacia'];
+    protected $allowedFields = ['id_proveedor', 'id_categoria_servicio','matricula','nombre_fantacia','activo'];
 
     protected $useTimestamps = true;
     //protected $createdField  = 'created_at'; //habria que crear estas columnas para llevar un seguimiento de la fecha de creacion

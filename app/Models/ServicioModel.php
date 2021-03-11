@@ -21,18 +21,18 @@ class ServicioModel extends Model{
     //protected $deletedField  = 'deleted_at';
 
     protected $validationRules    = [
-        'nombre_fantacia'=>'required|alpha_numeric_space|min_length[3]',
-        'matricula'=>'required|is_unique'
+        //'nombre_fantacia'=>'required|alpha_numeric_space|min_length[3]',
+        //'matricula'=>'required|is_unique'
     ];
     protected $validationMessages = [
-        'nombre_fantacia'=>[
-            'required'=>'Nombre del Servicio Requerido.',
-            'is_unique'=>'Servicio ya registrado.'
-        ],
-        'matricula'=>[
-            'required'=>'Número de Matrícula Requerida.',
-            'is_unique'=>'La Matrícula ya a sido ingresada.',
-        ]
+        //'nombre_fantacia'=>[
+          //  'required'=>'Nombre del Servicio Requerido.',
+            //'is_unique'=>'Servicio ya registrado.'
+        //],
+        //'matricula'=>[
+          //  'required'=>'Número de Matrícula Requerida.',
+            //'is_unique'=>'La Matrícula ya a sido ingresada.',
+        //]
     ];
     protected $skipValidation     = false;
 }

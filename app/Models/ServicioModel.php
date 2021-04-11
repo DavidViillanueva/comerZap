@@ -8,7 +8,7 @@ class ServicioModel extends Model{
     protected $table      = 'servicio';
     protected $primaryKey = 'id_servicio';
 
-    //protected $useAutoIncrement = true;  
+    protected $useAutoIncrement = true;  
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;   //no hay que eliminar el registro, solo habria que cambiarle el estado.
@@ -16,8 +16,8 @@ class ServicioModel extends Model{
     protected $allowedFields = ['id_proveedor', 'id_categoria_servicio','matricula','nombre_fantacia','activo'];
 
     protected $useTimestamps = true;
-    //protected $createdField  = 'created_at'; //habria que crear estas columnas para llevar un seguimiento de la fecha de creacion
-    //protected $updatedField  = 'updated_at'; //habria que crear estas columnas para llevar un seguimiento de la fecha de modificacion
+    protected $createdField  = 'fecha_alta'; //habria que crear estas columnas para llevar un seguimiento de la fecha de creacion
+    protected $updatedField  = 'fecha_edit'; //habria que crear estas columnas para llevar un seguimiento de la fecha de modificacion
     //protected $deletedField  = 'deleted_at';
 
     protected $validationRules    = [
@@ -35,6 +35,16 @@ class ServicioModel extends Model{
         //]
     ];
     protected $skipValidation     = false;
+
+    public function getServicio ( $id = false ) {
+      if( $id ) {
+          return $this->asArray()
+              ->where(['id_servicio' => $id ])
+              ->first();
+      }
+
+      return $this->findAll();
+    }
 }
 
 ?>

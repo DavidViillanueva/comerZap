@@ -1,3 +1,4 @@
+<?php //echo $id;?>
 <h1>Modificar Comercios</h1>
 <form action="update" method="post">
 <?php

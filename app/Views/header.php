@@ -14,10 +14,10 @@
 
 
 
-    <link rel="stylesheet" href="assets/styles/base.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/base.css">
 
     <!-- css only for this View File -->
-    <link rel="stylesheet" href="assets/styles/fragments/header.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/fragments/header.css">
 </head>
 <body>
 
@@ -38,7 +38,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="#">Inicio</a>
-                        <a class="nav-link" href="#">Comercios</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>/comercio">Comercios</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>/servicio">Servicios</a>
                         <a class="nav-link" href="#">Login</a>
                     </div>
                 </div>

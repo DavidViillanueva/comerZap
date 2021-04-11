@@ -1,15 +1,15 @@
 <div class="footer__footer align-text-bottom">
 
     
-    <link rel="stylesheet" href="assets/styles/fragments/footer.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/fragments/footer.css">
     <div class="footer__content">
         <div class="footer__logo">
-            <img class="logo2" src="assets/img/logo-gris.png">
+            <img class="logo2" src="<?php echo base_url(); ?>/assets/img/logo-gris.png">
         </div>
         <div class="footer__links">
             <h4>Links Relacionados</h4>
             <ul>
-                <li><a href="http://www.zapala.gob.ar"><img src="assets/img/Logo.png" alt=""></a></li>
+                <li><a href="http://www.zapala.gob.ar"><img src="<?php echo base_url(); ?>/assets/img/Logo.png" alt=""></a></li>
                 
             </ul>
         </div>
@@ -19,7 +19,7 @@
             <span>2942-423493</span>
             <span>tese@zapala.gob.ar</span>
             <div>
-                <a href="https://www.facebook.com/secretariaeducacionempleoproduccion"><img src="assets/img/facebook-1.png" alt=""></a>
+                <a href="https://www.facebook.com/secretariaeducacionempleoproduccion"><img src="<?php echo base_url(); ?>/assets/img/facebook-1.png" alt=""></a>
             </div>
         </div>
     </div>

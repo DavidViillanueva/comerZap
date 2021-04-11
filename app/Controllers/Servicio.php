@@ -23,7 +23,7 @@ class Servicio extends BaseController{
     //     var_dump($servicios);
     // }
 
-    //relacion controlador-vista
+    //relacion controlador-vista, muestra todos los servicios activos ('1') de la base de datos
     public function index($activo = 1){
 
         $servicios = $this->servicios->where('activo',$activo)->findAll();
@@ -118,6 +118,25 @@ class Servicio extends BaseController{
 			'matricula'=>$request->getPostGet('matricula'),
 			'nombre_fantacia'=>$request->getPostGet('nombre')
         ];
+		
+        $modelServicio->update($id,$data);
+            
+        $mostrar = $index->index();
+        return $mostrar; 
+            
+    }
+
+    //no se elimina de la base de datos, solo se actualiza su estado de '1' a '0' para que no aparezca en la pagina web
+    public function eliminarServicio(){
+
+        $index= new Servicio;
+
+        $modelServicio = new ServicioModel($db);
+		
+        $request = \Config\Services::request();
+		
+        $id = $request->getPostGet('id');
+        $data = [ 'activo'=>0 ];
 		
         $modelServicio->update($id,$data);
             

@@ -39,8 +39,14 @@ $routes->setAutoRoute(true);
 //  $routes->get('/create', 'Comercio::create');
 
 $routes->get('/servicio', 'Servicio::index');
-$routes->get('/', 'Servicio::index');
+$routes->get('/','Home::index');
+$routes->get('/services','Servicio::index');
+
+$routes->get('/commerce/','Comercio::index');
+$routes->get('/commerce/create','Comercio::create');
+// $routes->get('/', 'Servicio::index');
 $routes->get('/(:segment)', 'Servicio::view/$1');
+
 
 /**
  * --------------------------------------------------------------------

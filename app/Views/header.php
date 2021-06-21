@@ -37,7 +37,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="/">Inicio</a>
                         <a class="nav-link" href="<?php echo base_url(); ?>/comercio">Comercios</a>
                         <a class="nav-link" href="<?php echo base_url(); ?>/servicio">Servicios</a>
                         <a class="nav-link" href="#">Login</a>

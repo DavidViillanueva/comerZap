@@ -33,10 +33,10 @@ $routes->setAutoRoute(true);
 //$routes->get('/', 'Home::index');
 
 
-// Auth
-$routes->get('/login','AuthController::login');
-$routes->get('/register','AuthController::register');
-$routes->get('/recuperarContraseña','AuthController::forgotPassword');
+// Auth - las comento por el momento para que ande el registro y quede un usuario cargado
+//$routes->get('/login','AuthController::login');
+//$routes->get('/register','AuthController::register');
+//$routes->get('/recuperarContraseña','AuthController::forgotPassword');
 
 // Aux
 $routes->post('/localidades','AuthController::getLocalidades');
@@ -48,7 +48,7 @@ $routes->get('/services','Servicio::index');
 $routes->get('/commerce/','Comercio::index');
 $routes->get('/commerce/create','Comercio::create');
 // $routes->get('/', 'Servicio::index');
-$routes->get('/(:segment)', 'Servicio::view/$1');
+//$routes->get('/(:segment)', 'Servicio::view/$1');
 
 
 

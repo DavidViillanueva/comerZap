@@ -16,8 +16,6 @@ use Config\Logger;
 
 class authController extends BaseController {
 
-    
-    
     public function login ( ) {
         echo view('usuarios/login');
     }
@@ -26,7 +24,6 @@ class authController extends BaseController {
 
         $Modelprovincias = new ProvinciasModel($db);
 
-        
         echo view('usuarios/registro.php',[
             'provincias' => $Modelprovincias->getProvincias()
         ]);
@@ -42,7 +39,6 @@ class authController extends BaseController {
         $ModelLocalidades = new LocalidadesModel($db);
 
         $id = $this->request->getVar('id_provincia');
-
 
         if( $id) {
             $localidades = $ModelLocalidades->getLocalidades($id);

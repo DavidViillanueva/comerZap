@@ -1,4 +1,5 @@
-<!-- esta pagina debe mostrar todos los servicios activos cargados de la base de dato -->
+<!-- esta pagina es la que vera el usuario cliente al ingresar al sistema,
+y debe mostrar todos los servicios activos cargados de la base de dato -->
 <?php 
 //prueba bd
 //print_r($datos); 

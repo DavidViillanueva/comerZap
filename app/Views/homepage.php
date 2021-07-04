@@ -9,5 +9,6 @@
 <?php else :?>
     <h2>Usuario no logueado</h2>
 <?php endif; ?>
+
 <p><a href="/services">Servicios</a></p>
 <p><a href="/commerce">Comercios</a></p>

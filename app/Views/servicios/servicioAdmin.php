@@ -1,3 +1,4 @@
+<!-- pagina que vera solo el usuario Administrador -->
 <?php 
 //prueba bd
 //print_r($datos); 

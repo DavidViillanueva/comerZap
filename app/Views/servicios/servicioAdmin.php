@@ -43,7 +43,7 @@
                     <td><?php echo $datos_item['nombre_fantacia'] ?></td>
                     <td><?php echo $datos_item['activo'] ?></td>
                     <td><a href="<?php echo base_url() . '/servicio/editarServicio/' .$datos_item['id_servicio']; ?>" class="btn btn-warning">Editar Servicio</a></td>
-                    <td><a href="<?php echo base_url(); ?>/servicio/eliminarServicio?id=<?php echo $datos_item['id_servicio']; ?>" class="btn btn-danger">Borrar Servicio</a></td>
+                    <td><a href="<?php echo base_url(); ?>/servicioadmin/eliminarServicio?id=<?php echo $datos_item['id_servicio']; ?>" class="btn btn-danger">Borrar Servicio</a></td>
                 </tr>
             <?php } ?>
         </table>

@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <a href="<?php echo base_url();?>/servicio" class="btn btn-primary">Regresar</a>
+        <a href="<?php echo base_url();?>/servicioAdmin" class="btn btn-primary">Regresar</a>
         <button type="submit" class="btn btn-success">Editar</button>
         
     </form>

@@ -42,6 +42,7 @@ $routes->setAutoRoute(true);
 $routes->post('/localidades','AuthController::getLocalidades');
 
 $routes->get('/servicio', 'Servicio::index');
+$routes->get('/servicio', 'ServicioAdmin::index');
 $routes->get('/','Home::index');
 $routes->get('/services','Servicio::index');
 

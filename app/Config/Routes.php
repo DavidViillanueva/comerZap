@@ -46,6 +46,8 @@ $routes->get('/servicio', 'ServicioAdmin::index');
 $routes->get('/','Home::index');
 $routes->get('/services','Servicio::index');
 
+$routes->get('/dashboard', 'Dashboard::index');
+
 $routes->get('/commerce/','Comercio::index');
 $routes->get('/commerce/create','Comercio::create');
 // $routes->get('/', 'Servicio::index');

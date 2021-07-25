@@ -32,7 +32,7 @@ class ServicioAdmin extends BaseController{
 
         echo view('header');
         echo view('servicios/servicioAdmin', $data);
-        echo view('footer');
+        //echo view('footer');
     }
 
     public function nuevoServicio(){

@@ -16,7 +16,7 @@
     <div><!-- prueba mostrar tabla de servicios cargados en bd -->
         
         <p>
-            <h4><p>Tabla de ejemplo para probar el AMB en BD</p></h4>
+            <h4><p>Tabla Servicios Activos en BD</p></h4>
             <a href="<?php echo base_url(); ?>/servicio/nuevoServicio/" class="btn btn-info">Crear Servicio</a>
         </p>    
         <br>

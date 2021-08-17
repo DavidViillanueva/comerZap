@@ -9,6 +9,7 @@ class Dashboard extends BaseController{
         //return view('dashboard/dashboard');
         echo view('header');
         echo view('dashboard/dashboard');
+        //echo view('tables');
         //echo view('footer');
     }
 

@@ -2,6 +2,7 @@
 <?php
 //prueba bd
 //print_r($datos); 
+//$rows = $datos->num_rows();
 ?>
 
 <head>

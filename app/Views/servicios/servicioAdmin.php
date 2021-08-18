@@ -81,11 +81,11 @@
                                 </tbody>
                             <?php } ?>
                         </table>
+                        <!-- Hay que agregar paginación-->
                     </div>
                 </div>
                 <br>
                 <br>
-                <!-- Hay que agregar paginación-->
             </div>
         </main>
     </div>

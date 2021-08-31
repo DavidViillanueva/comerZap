@@ -26,25 +26,48 @@
         <div class="form__containerRounded animate__animated animate__fadeIn">
             <h1>Login</h1>
     
-            <form action="POST" class="form__column">
-                <div class="form__item">
-                    <label for="usuario">Nombre de Usuario:</label>
-                    <input type="text" class="form-control" name="usuario" id="usuario"  required>
-                </div>
+            <form action="<?= route_to('login') ?>" class="form__column" method="post">
+                <?= csrf_field() ?>
+                <?= view('Myth\Auth\Views\_message_block') ?>
+                <?php if ($config->validFields === ['email']): ?>
+                    <div class="form-group mt-3">
+                        <input type="email" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
+                                name="login" placeholder="<?=lang('Auth.email')?>">
+                        <div class="invalid-feedback">
+                            <?= session('errors.login') ?>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
+                            name="login" placeholder="<?=lang('Auth.emailOrUsername')?>">
+                        <div class="invalid-feedback">
+                            <?= session('errors.login') ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
     
-                <div class="form__item">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" class="form-control" name="pass" id="pass"  required>
-                </div>
+                    <div class="form-group mt-3">
+                        <input type="password" name="password" class="form-control  <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.password')?>">
+                        <div class="invalid-feedback">
+                            <?= session('errors.password') ?>
+                        </div>
+                    </div>
+
+                <?php if ($config->allowRemembering): ?>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="remember" class="form-check-input" <?php if(old('remember')) : ?> checked <?php endif ?>>
+                            <?=lang('Auth.rememberMe')?>
+                        </label>
+                    </div>
+                <?php endif; ?>
     
                 <div class="form__item">
     
                     <input type="submit" class="btn btn-primary" value="Ingresar">
                 </div>
     
-                <div class="form__helper">
-                    <a href="<?php echo base_url(); ?>/recuperarContraseña">¿Ha olvidado su contraseña?</a>
-                </div>
                 <div class="form__helper">
                     <a href="<?php echo base_url(); ?>/register" >Registrarse</a>
                 </div>

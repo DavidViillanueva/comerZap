@@ -23,20 +23,28 @@
         <div class="form__containerRounded">
             <h1>Registro</h1>
     
-            <form action="POST" class="form__column">
+            <form action="<?= route_to('register') ?>" class="form__column" method="post">
+                <?= csrf_field() ?>
+                <?= view('Myth\Auth\Views\_message_block') ?>
+
                 <div class="form__item">
-                    <label for="usuario">Email:</label>
-                    <input type="email" class="form-control" name="usuario" id="usuario"  required>
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>" name="email" required>
                 </div>
     
                 <div class="form__item">
-                    <label for="user">Usuario:</label>
-                    <input type="text" class="form-control" name="user" id="user"  required>
+                    <label for="username">Usuario:</label>
+                    <input type="text" class="form-control <?php if(session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" required>
                 </div>
 
                 <div class="form__item">
                     <label for="password">Contraseña:</label>
-                    <input type="password" class="form-control" name="password" id="password"  required>
+                    <input type="password" class="form-control <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" name="password" required>
+                </div>
+
+                <div class="form__item">
+                    <label for="pass_confirm">Confirmar contraseña:</label>
+                    <input type="password" class="form-control <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" name="pass_confirm" required>
                 </div>
     
                 <div class="form__item">
@@ -45,7 +53,7 @@
                 </div>
     
                 <div class="form__helper">
-                    <a href="<?php echo base_url(); ?>/login">Ya posee una cuenta?</a>
+                    <a href="<?= route_to('login') ?>">Ya posee una cuenta?</a>
                 </div>
                 <div class="form__helper">
                     <a href="<?php echo base_url(); ?>/">Inicio</a>

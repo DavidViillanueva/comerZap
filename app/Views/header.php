@@ -40,7 +40,12 @@
                         <a class="nav-link" aria-current="page" href="/">Inicio</a>
                         <a class="nav-link" href="<?php echo base_url(); ?>/comercio">Comercios</a>
                         <a class="nav-link" href="<?php echo base_url(); ?>/servicio">Servicios</a>
-                        <a class="nav-link" href="<?php echo base_url(); ?>/login">Login</a>
+
+                        <?php if (logged_in()) : ?>
+                            <a class="nav-link" href="<?= route_to('logout') ?>">Logout</a>
+                        <?php else :?>
+                            <a class="nav-link" href="<?php echo base_url(); ?>/login">Login</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

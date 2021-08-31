@@ -4,7 +4,7 @@
     <h1>Cargar Servicio</h1>
 </div>
 <div>
-    <form method="POST" action="<?php echo base_url(); ?>/servicio/insertar" autocomplete="off">
+    <form method="POST" action="<?php echo base_url(); ?>/servicioAdmin/insertar" autocomplete="off">
         <div class="form-group">
             
             <div class="row">
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <a href="<?php echo base_url();?>" class="btn btn-primary">Regresar</a>
+        <a href="<?php echo base_url();?>/servicioAdmin" class="btn btn-primary">Regresar</a>
         <button type="submit" class="btn btn-success">Guardar</button>
         
     </form>

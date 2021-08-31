@@ -1,1 +1,0 @@
-<!-- pagina para el usuario administrador -->

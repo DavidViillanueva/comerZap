@@ -13,9 +13,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 
-
+    <!-- Estilo base -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/base.css">
-
+    <!-- Estilo template sb-admin -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/styles.css">
+    <!-- Estilo template vali-admin -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/main.css">
     <!-- css only for this View File -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/fragments/header.css">
 </head>
@@ -25,7 +28,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-green">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="<?php echo base_url(); ?>">
                 <div class="header__logo"></div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

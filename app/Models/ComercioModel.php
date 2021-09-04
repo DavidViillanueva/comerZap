@@ -6,12 +6,17 @@ use CodeIgniter\Model;
 class ComercioModel extends Model {
     
     protected $table = 'comercio';
-
     protected $primaryKey = 'id_comercio';
+    protected $useAutoIncrement = true;  
     protected $returnType     = 'array';
-    //protected $useSoftDeletes = true;
-    protected $allowedFields = ['id_proveedor', 'id_domicilio','id_categoria', 'nombre_comercio','delivery', 'licencia_comercial', 'pagina_web', 'mail', 'descripcion'];
+    protected $useSoftDeletes = false;
+    protected $allowedFields = ['id_proveedor', 'id_domicilio','id_categoria', 'nombre_comercio','delivery', 'licencia_comercial', 'pagina_web', 'mail', 'descripcion', 'activo'] ;
 
+
+    protected $useTimestamps = true;
+    protected $createdField  = 'fecha_alta'; //habria que crear estas columnas para llevar un seguimiento de la fecha de creacion
+    protected $updatedField  = 'fecha_edit'; //habria que crear estas columnas para llevar un seguimiento de la fecha de modificacion
+    //protected $deletedField  = 'deleted_at';
     //solo hago validacion de algunos campos
     protected $validationRules    = [
         'nombre_comercio'=>'required|is_unique[comercio.nombre_comercio]|alpha_numeric_space|min_length[5]',

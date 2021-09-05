@@ -38,8 +38,9 @@ $routes->setAutoRoute(true);
 //$routes->get('/register','AuthController::register');
 //$routes->get('/recuperarContraseña','AuthController::forgotPassword');
 
-// Aux
+// Auth
 $routes->post('/localidades','AuthController::getLocalidades');
+$routes->get('/profile','AuthController::profile', [ 'as' => 'profile' ]);
 
 $routes->get('/servicio', 'Servicio::index');
 $routes->get('/servicio', 'ServicioAdmin::index');

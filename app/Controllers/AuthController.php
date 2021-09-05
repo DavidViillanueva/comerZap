@@ -16,21 +16,10 @@ use Config\Logger;
 
 class authController extends BaseController {
 
-    public function login ( ) {
-        echo view('usuarios/login');
-    }
-
-    public function register ( ) {
-
-        $Modelprovincias = new ProvinciasModel($db);
-
-        echo view('usuarios/registro.php',[
-            'provincias' => $Modelprovincias->getProvincias()
-        ]);
-    }
-
-    public function forgotPassword () {
-        echo view('usuarios/recuperarContraseña');
+    public function profile () {
+        echo view('header');
+        echo view('usuarios/perfil');
+        echo view('footer');
     }
 
 

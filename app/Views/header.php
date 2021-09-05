@@ -46,6 +46,7 @@
 
                         <?php if (logged_in()) : ?>
                             <a class="nav-link" href="<?= route_to('logout') ?>">Logout</a>
+                            <a class="nav-link" href="<?= route_to('profile') ?>">Perfil</a>
                         <?php else :?>
                             <a class="nav-link" href="<?php echo base_url(); ?>/login">Login</a>
                         <?php endif; ?>

@@ -27,8 +27,9 @@ class ServicioAdmin extends BaseController{
     //relacion controlador-vista, muestra todos los servicios activos ('1') de la base de datos
     public function index($activo = 1){
 
-        $serviciosAdmin = $this->serviciosAdmin->where('activo',$activo)->findAll();
-        $data = ['titulo' => 'Servicios Admin', 'datos'=> $serviciosAdmin]; 
+        $serviciosAdmin = $this->serviciosAdmin->where('activo',$activo)->paginate(5);
+        $paginador = $this->serviciosAdmin->pager;
+        $data = ['titulo' => 'Servicios Admin', 'datos'=> $serviciosAdmin, 'paginador'=>$paginador]; 
 
         echo view('header');
         echo view('servicios/servicioAdmin', $data);

@@ -1,21 +1,22 @@
+<!-- pagina para el usuario cliente -->
 <head>
-    <title><?= esc($title); ?></title>
+    <title><?= esc($titulo); ?></title>
 </head>
 
 
 <body>
-<h1><?= esc($title); ?></h1>
-<?php if( !empty( $commerce) && is_array($commerce) ) : ?>
+<h1><?= esc($titulo); ?></h1>
+<?php if( !empty($datos) && is_array($datos) ) : ?>
 
-    <?php foreach( $commerce as $commerce_item ) : ?>
+    <?php foreach( $datos as $datos_item ) : ?>
         <h3> 
-            <?= esc($commerce_item['nombre_comercio']); ?> 
+            <?= esc($datos_item['nombre_comercio']); ?> 
         </h3>
 
         <div>
-            <?= esc($commerce_item['descripcion']); ?>
+            <?= esc($datos_item['descripcion']); ?>
         </div>
-
+        <p><a href="/<?= esc($datos_item['id_comercio'], 'url'); ?>">Ver Comercio</a></p>
     <?php endforeach; ?>
 
 <?php else: ?>

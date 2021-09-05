@@ -2,35 +2,39 @@
 
 
 use CodeIgniter\Controller;
-
+use App\Controllers\BaseController;
 use App\Models\ComercioModel;
 use App\Models\ProveedorModel;
 use App\Models\DomicilioModel;
 use App\Models\CategoriaComercioModel;
 
 
-class Comercio extends Controller
+class Comercio extends BaseController
 {
-
-	
-	public function index()
-	{
-		$model = new ComercioModel($db); //se inicializa una instancia de el modelo
-		
-		//$data = [
-			//'commerce' => $model->getCommerce(),
-			//$comercios = $model->find([4,5,6]);
-			$comercios = $model->findAll();
-			$comercios = array('comercios'=>$comercios);
-			//'title' = 'Comercios',
-		//];
-
-		echo view('header');
-		echo view('comercio/VistaComercio', $comercios);
-		echo view('footer');
-		
-		
+	protected $comercios;
+	public function __construct(){
+		$this->comercios = new ComercioModel($db);
 	}
+	//index para el usuario cliente
+	public function index($activo = 1)
+	{
+		$comercios = $this->comercios->where('activo', $activo)->findAll();
+		$data = ['titulo'=>'Comercios', 'datos'=>$comercios];	
+		echo view('header');
+		//echo view('comercio/VistaComercio', $comercios);
+		echo view('comercio/Comercio', $data);
+		echo view('footer');
+	}
+	//
+	public function comercioAdmin($activo = 1){
+		$comercios = $this->comercios->where('activo', $activo)->findAll();
+		$data = ['titulo'=>'Comercios Administrador', 'datos'=>$comercios];	
+		echo view('header');
+		//echo view('comercio/VistaComercio', $comercios);
+		echo view('comercio/comercioAdmin', $data);
+		echo view('footer');
+	}
+
 	public function create(){
 		$modelP = new ProveedorModel($db);
 		$modelD = new DomicilioModel($db);
@@ -58,49 +62,45 @@ class Comercio extends Controller
 			'pagina_web'=>$request->getPostGet('pagina_web'),
 			'mail'=>$request->getPostGet('mail'),
 			'descripcion'=>$request->getPostGet('descripcion'),
+			'activo'=> 0,
 		);
-		
-		
 		if($modelComercio->insert($data)===false){
 			var_dump($modelComercio->errors());
 			$this->create();
 		}else{
-			$comercios = $modelComercio->findAll();
-			$comercios = array('comercios'=>$comercios);
-			echo view('header');
-			echo view('comercio/VistaComercio', $comercios);
-			echo view('footer');
+            return redirect()->route('comercio-admin');
 		}	
 		
 	}
-	public function edit(){
-		$modelComercio = new ComercioModel($db);
+	public function edit($id){
+		//$modelComercio = new ComercioModel($db);
 		$modelP = new ProveedorModel($db);
 		$modelD = new DomicilioModel($db);
 		$modelCC = new CategoriaComercioModel($db);
 
-
-		$request = \Config\Services::request();
-		$id=$request->getPostGet('id');//
-		
+		//$request = \Config\Services::request();
+		//$id=$request->getPostGet('id');//
+		$comercios = $this->comercios->where('id_comercio', $id)->first();
 		//$model = array('model'=>$model);
-		$model = [
-			'model' => $modelComercio->find([$id]),//busco el id
-			//'model' = array('models'=>$data),
+		$data = [
+			'titulo' => 'Editar Comercio',
 			'proveedor' => $modelP->getProveedor(),
 			'domicilio' => $modelD->getDomicilio(),
 			'categoria' => $modelCC->getCategoriaComercio(),
+			'datos'=> $comercios,
 		];
 		//$model = array('model'=>$data);
-		//var_dump($model);
+		var_dump($data);
 		echo view('header');
-		echo view('comercio/ModificarComercio',$model);
+		echo view('comercio/ModificarComercio',$data);
 		echo view('footer');
 	}
 	public function update(){
 		$modelComercio = new ComercioModel($db);
 		$request = \Config\Services::request();
+		//$id = $request->getPostGet('id');
 		$data = array(
+			'id_comercio' => $request->getPostGet('id'),
 			'id_proveedor'=>$request->getPostGet('id_proveedor'),
 			'id_domicilio'=>$request->getPostGet('id_domicilio'),
 			'id_categoria'=>$request->getPostGet('id_categoria'),
@@ -110,27 +110,21 @@ class Comercio extends Controller
 			'pagina_web'=>$request->getPostGet('pagina_web'),
 			'mail'=>$request->getPostGet('mail'),
 			'descripcion'=>$request->getPostGet('descripcion'),
+			'activo'=>$request->getPostGet('activo'),
 		);
 		if($request->getPostGet('id')){
 			$data['id_comercio'] = $request->getPostGet('id');
 		}
+		var_dump($data);
 		$modelComercio->save($data);
-		$comercios = $modelComercio->findAll();
-		$comercios = array('comercios'=>$comercios);
-		echo view('header');
-		echo view('comercio/VistaComercio', $comercios);
-		echo view('footer');
+		return redirect()->route('comercio-admin');
 	}
 	public function delete(){
 		$modelComercio = new ComercioModel($db);
 		$request = \Config\Services::request();
 		$id=$request->getPostGet('id');
 		$modelComercio->delete($id);
-		$comercios = $modelComercio->findAll();
-		$comercios = array('comercios'=>$comercios);
-		echo view('header');
-		echo view('comercio/VistaComercio', $comercios);
-		echo view('footer');
+		return redirect()->route('comercio-admin');
 	}
 	//--------------------------------------------------------------------
 

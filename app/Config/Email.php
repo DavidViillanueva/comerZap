@@ -61,7 +61,7 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $SMTPPass = 'lema@27021992';//aca si o si va la contraseña del mail de arriba o del mail que usara la pagina zapalacomercial para activar las cuentas de usuarios, si no se coloca no funciona
+	public $SMTPPass = '';//aca si o si va la contraseña del mail de arriba o del mail que usara la pagina zapalacomercial para activar las cuentas de usuarios, si no se coloca no funciona
 
 	/**
 	 * SMTP Port

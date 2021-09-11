@@ -33,14 +33,11 @@ $routes->setAutoRoute(true);
 //$routes->get('/', 'Home::index');
 
 
-// Auth - las comento por el momento para que ande el registro y quede un usuario cargado
-$routes->get('/login','AuthController::login');
-$routes->get('/register','AuthController::register');
-$routes->get('/recuperarContraseña','AuthController::forgotPassword');
 
-// Auth
 $routes->post('/localidades','AuthController::getLocalidades');
-$routes->get('/profile','AuthController::profile', [ 'as' => 'profile' ]);
+
+// Esta ruta tiene un middlelware
+$routes->get('/profile','AuthController::profile', [ 'as' => 'profile' , 'filter' => 'authFilter']);
 
 $routes->get('/servicio', 'Servicio::index');
 $routes->get('/servicio', 'ServicioAdmin::index');

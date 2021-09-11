@@ -41,15 +41,22 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="/">Inicio</a>
-                        <a class="nav-link" href="<?php echo base_url(); ?>/comercio">Comercios</a>
-                        <a class="nav-link" href="<?php echo base_url(); ?>/servicio">Servicios</a>
-
                         <?php if (logged_in()) : ?>
-                            <a class="nav-link" href="<?= route_to('logout') ?>">Logout</a>
-                            <a class="nav-link" href="<?= route_to('profile') ?>">Perfil</a>
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Cuenta</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="nav-link" href="<?= route_to('logout') ?>">Logout</a></li>
+                                    <li><a class="nav-link" href="<?= route_to('profile') ?>">Perfil</a></li>
+                                </ul>
+                            </li>
                         <?php else :?>
                             <a class="nav-link" href="<?php echo base_url(); ?>/login">Login</a>
                         <?php endif; ?>
+                        <a class="nav-link" href="<?php echo base_url(); ?>/comercio">Comercios</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>/servicio">Servicios</a>
+
                     </div>
                 </div>
             </div>

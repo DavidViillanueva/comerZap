@@ -34,12 +34,9 @@ class Auth extends BaseConfig
 	 *
 	 * @var array
 	 */
-	#Cambio de rutas de vistas
 	public $views = [
-		// 'login'		   => 'Myth\Auth\Views\login',
-		'login' => 'usuarios/login',
-		// 'register'		=> 'Myth\Auth\Views\register',
-		'register' => 'usuarios/registro',
+		'login'		   => 'Myth\Auth\Views\login',
+		'register'		=> 'Myth\Auth\Views\register',
 		'forgot'		  => 'Myth\Auth\Views\forgot',
 		'reset'		   => 'Myth\Auth\Views\reset',
 		'emailForgot'	 => 'Myth\Auth\Views\emails\forgot',

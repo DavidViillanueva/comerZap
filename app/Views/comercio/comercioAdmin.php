@@ -42,7 +42,7 @@
                     <h4>
                         <p>Comercios Activos en BD</p>
                     </h4>
-                    <a href="<?php echo base_url();?>/comercio/create" class="btn btn-info">Crear Comercio</a>
+                    <a href="<?php echo base_url();?>/comercio/crear" class="btn btn-info">Crear Comercio</a>
                     </p>
                     <br>
                     <div class="table-responsive">
@@ -78,8 +78,8 @@
                                         <td><?= $datos_item['mail']; ?></td>
                                         <td><?= $datos_item['descripcion']; ?></td>
                                         <td><?= $datos_item['activo']; ?></td>
-                                        <td><a href="<?php echo base_url() . '/comercio/edit/'.$datos_item['id_comercio']; ?>" class="btn btn-warning">Editar Comercio</a></td>
-                                        <td><a href="<?php echo base_url(); ?>/comercio/delete?id=<?php echo $datos_item['id_comercio']; ?>" class="btn btn-danger">Borrar Comercio</a></td>
+                                        <td><a href="<?php echo base_url() . '/comercio/editar/'.$datos_item['id_comercio']; ?>" class="btn btn-warning">Editar Comercio</a></td>
+                                        <td><a href="<?php echo base_url(); ?>/comercio/borrar?id=<?php echo $datos_item['id_comercio']; ?>" class="btn btn-danger">Borrar Comercio</a></td>
                                     </tr>
                                 </tbody>
                             <?php } ?>

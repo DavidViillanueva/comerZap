@@ -14,8 +14,8 @@ class ComercioModel extends Model {
 
 
     protected $useTimestamps = true;
-    protected $createdField  = 'fecha_alta'; //habria que crear estas columnas para llevar un seguimiento de la fecha de creacion
-    protected $updatedField  = 'fecha_edit'; //habria que crear estas columnas para llevar un seguimiento de la fecha de modificacion
+    protected $createdField  = 'created_at'; //habria que crear estas columnas para llevar un seguimiento de la fecha de creacion
+    protected $updatedField  = 'updated_at'; //habria que crear estas columnas para llevar un seguimiento de la fecha de modificacion
     //protected $deletedField  = 'deleted_at';
     //solo hago validacion de algunos campos
     protected $validationRules    = [

@@ -3,7 +3,7 @@
     <title><?php echo $titulo; ?></title>
     <h1><?php echo $titulo; ?></h1>
 </div>
-<form action="update" method="POST">
+<form action="<?php base_url() ?>/comercio/actualizar" method="POST">
 <?php
 if(isset($datos)){
     $idCo = $datos['id_comercio'];
@@ -17,9 +17,10 @@ if(isset($datos)){
     $mail = $datos['mail'];
     $desc = $datos['descripcion'];
     $activo = $datos['activo'];
-    //var_dump($proveedor);
+    //var_dump($datos);
 }
 ?>
+<input type="hidden" name="id" value="<?php echo $idCo; ?>">
 <?php /*Comentario sobre los select, al momento de modificar los datos, la unica forma que encontre de tirar el dato correcto en el option fue de la manera <option value="<?php echo $idP; ?>"><?php echo $idP; ?></option>, si desplegamos el option, mostrara el valor repetido, pero es el mismo valor */ ?>
 
 <div class="form-group">
@@ -63,7 +64,7 @@ if(isset($datos)){
     </div>
     <div class="row">
         <div class="col-12 col-sm-6">
-            <input type="hidden" name="id" value="<?php echo $idCo; ?>">
+            
             <label for="">Nombre Comercio: </label>
             <input type="text" class="form-control" name="nombre_comercio" id="" value="<?php echo $nc;?>">
         </div>

@@ -47,7 +47,7 @@ $routes->get('/services','Servicio::index');
 $routes->get('/dashboard', 'Dashboard::index');
 
 $routes->get('/commerce/','Comercio::index');
-$routes->get('/commerce/create','Comercio::create');
+$routes->get('/commerce/crear','Comercio::crear');
 $routes->get('/comercio', 'Comercio::index');
 $routes->get('/comercio-admin', 'Comercio::comercioAdmin', ['as'=>'comercio-admin']);
 // $routes->get('/', 'Servicio::index');

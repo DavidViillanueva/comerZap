@@ -4,7 +4,7 @@
 <div>
     <h1>Crear Comercios</h1>
 </div>
-<form action="save" method="post">
+<form action="<?php base_url() ?>/comercio/guardar" method="post">
     <div class="form-group">
         <div class="row">
             <div class="col-12 col-sm-6">

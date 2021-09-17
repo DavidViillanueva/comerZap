@@ -132,9 +132,7 @@ class ServicioAdmin extends BaseController{
     public function eliminarServicio(){
 
         $index= new ServicioAdmin;
-
         $modelServicio = new ServicioModel($db);
-		
         $request = \Config\Services::request();
 		
         $id = $request->getPostGet('id');

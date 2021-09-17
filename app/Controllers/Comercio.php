@@ -1,7 +1,7 @@
 <?php namespace App\Controllers;
 
 
-use CodeIgniter\Controller;
+//use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\ComercioModel;
 use App\Models\ProveedorModel;
@@ -35,7 +35,7 @@ class Comercio extends BaseController
 		echo view('footer');
 	}
 
-	public function create(){
+	public function crear(){
 		$modelP = new ProveedorModel($db);
 		$modelD = new DomicilioModel($db);
 		$modelCC = new CategoriaComercioModel($db);
@@ -49,7 +49,7 @@ class Comercio extends BaseController
 		echo view('comercio/CrearComercio', $data);
 		echo view('footer');
 	}
-	public function save(){
+	public function guardar(){
 		$modelComercio = new ComercioModel($db);
 		$request = \Config\Services::request();
 		$data = array(
@@ -66,17 +66,17 @@ class Comercio extends BaseController
 		);
 		if($modelComercio->insert($data)===false){
 			var_dump($modelComercio->errors());
-			$this->create();
+			$this->crear();
 		}else{
             return redirect()->route('comercio-admin');
 		}	
 		
 	}
-	public function edit($id){
+	public function editar($id){
 		//$modelComercio = new ComercioModel($db);
-		$modelP = new ProveedorModel($db);
-		$modelD = new DomicilioModel($db);
-		$modelCC = new CategoriaComercioModel($db);
+		$modelP = new ProveedorModel();
+		$modelD = new DomicilioModel();
+		$modelCC = new CategoriaComercioModel();
 
 		//$request = \Config\Services::request();
 		//$id=$request->getPostGet('id');//
@@ -89,41 +89,34 @@ class Comercio extends BaseController
 			'categoria' => $modelCC->getCategoriaComercio(),
 			'datos'=> $comercios,
 		];
-		//$model = array('model'=>$data);
-		var_dump($data);
 		echo view('header');
-		echo view('comercio/ModificarComercio',$data);
+		echo view('comercio/ModificarComercio', $data);
 		echo view('footer');
 	}
-	public function update(){
+	public function actualizar(){
+		//$index = new Comercio;
 		$modelComercio = new ComercioModel($db);
 		$request = \Config\Services::request();
-		//$id = $request->getPostGet('id');
-		$data = array(
-			'id_comercio' => $request->getPostGet('id'),
-			'id_proveedor'=>$request->getPostGet('id_proveedor'),
-			'id_domicilio'=>$request->getPostGet('id_domicilio'),
-			'id_categoria'=>$request->getPostGet('id_categoria'),
-			'nombre_comercio'=>$request->getPostGet('nombre_comercio'),
-			'delivery'=>$request->getPostGet('delivery'),
-			'licencia_comercial'=>$request->getPostGet('licencia_comercial'),
-			'pagina_web'=>$request->getPostGet('pagina_web'),
-			'mail'=>$request->getPostGet('mail'),
-			'descripcion'=>$request->getPostGet('descripcion'),
-			'activo'=>$request->getPostGet('activo'),
-		);
-		if($request->getPostGet('id')){
-			$data['id_comercio'] = $request->getPostGet('id');
-		}
+		$id = $request->getPostGet('id');
+		$data = ['id_proveedor'	=> $request->getPostGet('id_proveedor'),'id_domicilio'=> $request->getPostGet('id_domicilio'),'id_categoria'			=> $request->getPostGet('id_categoria'),'nombre_comercio'=> $request->getPostGet('nombre_comercio'),'delivery'=> $request->getPostGet('delivery')];
 		var_dump($data);
-		$modelComercio->save($data);
+		var_dump($modelComercio->update($id, $data));
+		$data = ['licencia_comercial'=>$request->getPostGet('licencia_comercial'),'pagina_web'=> $request->getPostGet('pagina_web'),'mail'=> $request->getPostGet('mail'),'descripcion'=> $request->getPostGet('descripcion'),'activo'=> $request->getPostGet('activo')];
+		var_dump($data);
+		var_dump($modelComercio->update($id, $data));
+		//$mostrar = $index->index();
+        //return $mostrar; 
 		return redirect()->route('comercio-admin');
 	}
-	public function delete(){
+	public function borrar(){
+		//$index = new Comercio;
 		$modelComercio = new ComercioModel($db);
 		$request = \Config\Services::request();
 		$id=$request->getPostGet('id');
-		$modelComercio->delete($id);
+		$data = [ 'activo'=> 0];
+		$modelComercio->update($id, $data);
+		//$mostrar = $index->index();
+        //return $mostrar; 
 		return redirect()->route('comercio-admin');
 	}
 	//--------------------------------------------------------------------

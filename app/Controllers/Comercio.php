@@ -25,10 +25,11 @@ class Comercio extends BaseController
 		echo view('comercio/Comercio', $data);
 		echo view('footer');
 	}
-	//
-	public function comercioAdmin($activo = 1){
-		$comercios = $this->comercios->where('activo', $activo)->findAll();
-		$data = ['titulo'=>'Comercios Administrador', 'datos'=>$comercios];	
+	//el admin deberia poder ver todos los comercios, los que esten de baja y los que no
+	public function comercioAdmin(/*$activo = 1*/){
+		$comercios = $this->comercios->paginate(5);//->findAll()->where('activo', $activo)->findAll()
+		$paginador = $this->comercios->pager;
+		$data = ['titulo'=>'Comercios Administrador', 'datos'=>$comercios, 'paginador'=>$paginador];	
 		echo view('header');
 		//echo view('comercio/VistaComercio', $comercios);
 		echo view('comercio/comercioAdmin', $data);

@@ -21,7 +21,7 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Servicios
                     </a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="<?php echo base_url(); ?>/comercio-admin">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Comercios
                     </a>

@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/main.css">
     <!-- css only for this View File -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/fragments/header.css">
+    <!-- Estilos FontAwesome -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/all.min.css">
 </head>
 <body>
 

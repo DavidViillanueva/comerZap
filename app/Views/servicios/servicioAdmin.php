@@ -22,15 +22,15 @@
                         Servicios
                     </a>
                     <a class="nav-link" href="<?php echo base_url(); ?>/comercio-admin">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-store-alt"></i></div>
                         Comercios
                     </a>
                     <a class="nav-link" href="#">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
                         Usuarios
                     </a>
                     <a class="nav-link" href="#">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
                         Auditoria
                     </a>
 
@@ -76,8 +76,8 @@
                                         <td><?php echo $datos_item['matricula']; ?></td>
                                         <td><?php echo $datos_item['nombre_fantacia'] ?></td>
                                         <td><?php echo $datos_item['activo'] ?></td>
-                                        <td><a href="<?php echo base_url() . '/servicio/editarServicio/' . $datos_item['id_servicio']; ?>" class="btn btn-warning">Editar Servicio</a></td>
-                                        <td><a href="<?php echo base_url(); ?>/servicioadmin/eliminarServicio?id=<?php echo $datos_item['id_servicio']; ?>" class="btn btn-danger">Borrar Servicio</a></td>
+                                        <td><a href="<?php echo base_url() . '/servicio/editarServicio/' . $datos_item['id_servicio']; ?>" class="btn btn-warning"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="<?php echo base_url(); ?>/servicioadmin/eliminarServicio?id=<?php echo $datos_item['id_servicio']; ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
                                     </tr>
                                 </tbody>
                             <?php } ?>

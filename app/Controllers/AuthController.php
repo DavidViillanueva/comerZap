@@ -34,12 +34,14 @@ class authController extends BaseController {
         ];
 
 
-        $persona = $personas->getPersonaByUser(user()->id);
-        $domicilio = $domicilioModel->getDomicilio( $persona['id_domicilio'] );
-
-        
-        $_SESSION['persona'] = $persona;
-        $_SESSION['domicilio'] = $domicilio;
+        if( $isComplete ){
+            $persona = $personas->getPersonaByUser(user()->id);
+            $domicilio = $domicilioModel->getDomicilio( $persona['id_domicilio'] );
+    
+            
+            $_SESSION['persona'] = $persona;
+            $_SESSION['domicilio'] = $domicilio;
+        }
 
         echo view('header');
         echo view('usuarios/perfil',$data);

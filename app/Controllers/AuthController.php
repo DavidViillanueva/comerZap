@@ -5,6 +5,8 @@ use CodeIgniter\HTTP\Message;
 use CodeIgniter\Controller;
 use App\Models\ProvinciasModel;
 use App\Models\LocalidadesModel;
+use App\Models\personaModel;
+use App\Models\DomicilioModel;
 
 
 use CodeIgniter\HTTP\RequestInterface;
@@ -16,23 +18,157 @@ use Config\Logger;
 
 class authController extends BaseController {
 
+    protected $personas;
+	public function __construct(){
+		$this->personas = new personaModel($db);
+	}
+
     public function profile () {
+
+        $personas = new personaModel($db);
+        $domicilioModel = new DomicilioModel($db);
+        
+        $isComplete = $personas->isComplete(user()->id);
+        $data = [
+            'isComplete' => $isComplete
+        ];
+
+
+        $persona = $personas->getPersonaByUser(user()->id);
+        $domicilio = $domicilioModel->getDomicilio( $persona['id_domicilio'] );
+
+        
+        $_SESSION['persona'] = $persona;
+        $_SESSION['domicilio'] = $domicilio;
+
         echo view('header');
-        echo view('usuarios/perfil');
+        echo view('usuarios/perfil',$data);
+        echo view('footer');
+    }
+    
+    public function completeProfile () {
+        $personasModel = new personaModel($db);
+        $domicilioModel = new domicilioModel($db);
+        $data = [
+            'nombre' => $this->request->getPostGet('nombre'),
+            'apellido' => $this->request->getPostGet('apellido'),
+            'dni' => $this->request->getPostGet('dni'),
+            'fechaNacimiento' => $this->request->getPostGet('fechaNacimiento'),
+            'barrio' => $this->request->getPostGet('barrio'),
+            'calle' => $this->request->getPostGet('calle'),
+            'altura' => $this->request->getPostGet('altura'),
+            'piso' => $this->request->getPostGet('piso'),
+            'dpto' => $this->request->getPostGet('dpto'),
+            'postal' => $this->request->getPostGet('postal'),
+            'genero' => $this->request->getPostGet('sexo')
+        ];
+
+        $validation =  \Config\Services::validation();
+
+        $validation->reset();
+
+        $validation->setRules([
+            'nombre' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes ingresar un nombre.'
+                ]
+            ],
+            'apellido' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes ingresar un apellido.'
+                ]
+            ],
+            'dni' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes ingresar un dni.'
+                ]
+            ],
+            'fechaNacimiento' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes ingresar un fechaNacimiento.'
+                ]
+            ],
+            'barrio' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes ingresar un barrio.'
+                ]
+            ],
+            'calle' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes ingresar un calle.'
+                ]
+            ],
+            'altura' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes ingresar un altura.'
+                ]
+            ],
+            'postal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes ingresar un postal.'
+                ]
+            ]
+        ]);
+
+
+
+        if ( $validation->run($data) && $this->request->getMethod() === 'post') {
+                $domicilioId = $domicilioModel->insert([
+                    'barrio' => $data['barrio'],
+                    'calle' => $data['calle'],
+                    'altura' => $data['altura'],
+                    'piso' => $data['piso'],
+                    'departamento' => $data['dpto'],
+                    'postal' => $data['postal']
+                ]);
+                if( $domicilioId  ) {
+                    $personaId = $personasModel->insert([
+                        'id_users' => user()->id,
+                        'nombre' => $data['nombre'],
+                        'apellido' => $data['apellido'],
+                        'id_domicilio' => $domicilioId,
+                        'DNI' => $data['dni'],
+                        'fecha_nacimiento' => $data['fechaNacimiento'],
+                        'mail' => user()->email,
+                        'genero' => $data['genero']
+                    ]);
+                };
+
+                return redirect()->back()->withInput()->with('errors',[
+                    'server' => 'Ocurrio un error de nuestro lado, danos tiempo de arreglarlo!'
+                ]);
+        } else {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+        
+        
+
+
+
+        echo view('header');
+        echo view('usuarios/perfil',$data);
         echo view('footer');
     }
 
 
-    public function getLocalidades () {
-        $localidades = "";
-        $ModelLocalidades = new LocalidadesModel($db);
+    // public function getLocalidades () {
+    //     $localidades = "";
+    //     $ModelLocalidades = new LocalidadesModel($db);
 
-        $id = $this->request->getVar('id_provincia');
+    //     $id = $this->request->getVar('id_provincia');
 
-        if( $id) {
-            $localidades = $ModelLocalidades->getLocalidades($id);
+    //     if( $id) {
+    //         $localidades = $ModelLocalidades->getLocalidades($id);
 
-            return $this->response->setJSON($localidades);
-        }
-    }
+    //         return $this->response->setJSON($localidades);
+    //     }
+    // }
 }

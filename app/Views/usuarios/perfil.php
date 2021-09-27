@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="./assets/styles/fragments/profile.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/styles/fragments/profile.css">
 <script src="https://kit.fontawesome.com/5d5c86fd92.js" crossorigin="anonymous"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -11,7 +11,7 @@
 		<div class="cuerpo">
             <!-- imagen user -->
             <div class="user">
-                <img class="icon-shop" src="./assets/img/profile-default.jpg" alt="">
+                <img class="icon-shop" src="<?php echo base_url(); ?>/assets/img/profile-default.jpg" alt="">
             </div>
 
             <!-- menu por tabs -->

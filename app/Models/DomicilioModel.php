@@ -10,11 +10,13 @@ class DomicilioModel extends Model {
     protected $primaryKey = 'id_domicilio';
     protected $returnType     = 'array';
     //protected $useSoftDeletes = true;
-    protected $allowedFields = ['id_localidad', 'barrio','calle', 'altura','piso', 'departamento'];
+    protected $allowedFields = ['id_localidad', 'barrio','calle', 'altura','piso', 'departamento','postal'];
 
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    
 
     public function getDomicilio ( $id = false ) {
         if( $id ) {

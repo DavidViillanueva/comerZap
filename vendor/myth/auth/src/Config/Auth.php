@@ -35,8 +35,10 @@ class Auth extends BaseConfig
 	 * @var array
 	 */
 	public $views = [
-		'login'		   => 'Myth\Auth\Views\login',
-		'register'		=> 'Myth\Auth\Views\register',
+		// 'login'		   => 'Myth\Auth\Views\login',
+		// 'register'		=> 'Myth\Auth\Views\register',
+		'login' => 'usuarios/login',
+		'register' => 'usuarios/registro',
 		'forgot'		  => 'Myth\Auth\Views\forgot',
 		'reset'		   => 'Myth\Auth\Views\reset',
 		'emailForgot'	 => 'Myth\Auth\Views\emails\forgot',

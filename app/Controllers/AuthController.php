@@ -49,6 +49,7 @@ class authController extends BaseController {
     }
     
     public function completeProfile () {
+        log_message(3,'la concha de tu madre');
         $personasModel = new personaModel($db);
         $domicilioModel = new domicilioModel($db);
         $data = [
@@ -62,7 +63,7 @@ class authController extends BaseController {
             'piso' => $this->request->getPostGet('piso'),
             'dpto' => $this->request->getPostGet('dpto'),
             'postal' => $this->request->getPostGet('postal'),
-            'genero' => $this->request->getPostGet('sexo')
+            'genero' => $this->request->getPostGet('sexo'),
         ];
 
         $validation =  \Config\Services::validation();
@@ -123,30 +124,47 @@ class authController extends BaseController {
 
 
         if ( $validation->run($data) && $this->request->getMethod() === 'post') {
-                $domicilioId = $domicilioModel->insert([
-                    'barrio' => $data['barrio'],
-                    'calle' => $data['calle'],
-                    'altura' => $data['altura'],
-                    'piso' => $data['piso'],
-                    'departamento' => $data['dpto'],
-                    'postal' => $data['postal']
-                ]);
-                if( $domicilioId  ) {
-                    $personaId = $personasModel->insert([
-                        'id_users' => user()->id,
-                        'nombre' => $data['nombre'],
-                        'apellido' => $data['apellido'],
-                        'id_domicilio' => $domicilioId,
-                        'DNI' => $data['dni'],
-                        'fecha_nacimiento' => $data['fechaNacimiento'],
-                        'mail' => user()->email,
-                        'genero' => $data['genero']
+                try {
+                    $domicilioId = $domicilioModel->insert([
+                        'barrio' => $data['barrio'],
+                        'calle' => $data['calle'],
+                        'altura' => $data['altura'],
+                        'piso' => $data['piso'],
+                        'departamento' => $data['dpto'],
+                        'postal' => $data['postal']
                     ]);
-                };
 
-                return redirect()->back()->withInput()->with('errors',[
-                    'server' => 'Ocurrio un error de nuestro lado, danos tiempo de arreglarlo!'
-                ]);
+                    log_message(3,$domicilioId);
+                    if( $domicilioId !== false  ) {
+                        $personaId = $personasModel->insert([
+                            'id_users' => user()->id,
+                            'nombre' => $data['nombre'],
+                            'apellido' => $data['apellido'],
+                            'id_domicilio' => $domicilioId,
+                            'DNI' => $data['dni'],
+                            'fecha_nacimiento' => $data['fechaNacimiento'],
+                            'mail' => user()->email,
+                            'genero' => $data['genero']
+                        ]);
+    
+                        if( $personaId ) {
+                            $data['isComplete'] = true;
+                            $persona = $personas->getPersonaByUser(user()->id);
+                            $domicilio = $domicilioModel->getDomicilio( $persona['id_domicilio'] );
+                    
+                            
+                            $_SESSION['persona'] = $persona;
+                            $_SESSION['domicilio'] = $domicilio;
+                        }
+                    }
+                } catch (\Throwable $th) {
+                    return redirect()->back()->withInput()->with('errors',[
+                        'server' => 'Ocurrio un error de nuestro lado, danos tiempo de arreglarlo!'
+                    ]);
+                }
+
+                
+
         } else {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }

@@ -7,6 +7,7 @@ use App\Models\ComercioModel;
 use App\Models\ProveedorModel;
 use App\Models\DomicilioModel;
 use App\Models\CategoriaComercioModel;
+use App\Models\LogoComercioModel;
 
 
 class Comercio extends BaseController
@@ -52,6 +53,7 @@ class Comercio extends BaseController
 	}
 	public function guardar(){
 		$modelComercio = new ComercioModel($db);
+		$modelLogo = new LogoComercioModel($db);
 		$request = \Config\Services::request();
 		$data = array(
 			'id_proveedor'=>$request->getPostGet('id_proveedor'),
@@ -65,11 +67,27 @@ class Comercio extends BaseController
 			'descripcion'=>$request->getPostGet('descripcion'),
 			'activo'=> 0,
 		);
+		//aca iria la carga de imagenes
+
 		if($modelComercio->insert($data)===false){
 			var_dump($modelComercio->errors());
 			$this->crear();
 		}else{
-            return redirect()->route('comercio-admin');
+		$idLogo = $modelComercio->insertID;//obtengo el ultimo id, para realizar la carga del logo y de la foto
+		$imageFile = $this->request->getFile('logo');
+		$file_type = $imageFile->getClientMimeType();	
+		$dataLogo = array(
+			'id_comercio' => $idLogo,
+			'tipo_imagen' => $file_type,
+			'imagen' => $imageFile
+		);
+		$modelLogo->insert($dataLogo);
+		return redirect()->route('comercio-admin');
+		//print_r($id);
+
+		//aca tmb puede ir la carga de imagenes
+		//$this->_uploadLogo($id); //aca comente para ver si puedo llamar desde otro lado o lo q sea zzzzzzzzZZZZZZZZ
+        //    return redirect()->route('comercio-admin');
 		}	
 		
 	}
@@ -119,6 +137,36 @@ class Comercio extends BaseController
 		//$mostrar = $index->index();
         //return $mostrar; 
 		return redirect()->route('comercio-admin');
+	}
+
+	private function _uploadLogo($id){
+		
+		if($imageFile = $this->request->getFile('logo')){
+			
+			if ($imageFile->isValid() && !$imageFile->hasMoved()) {
+				
+				$validated = $this->validate ([
+					'logo' => [
+						'uploaded[logo]',
+						'mime_in[logo,image/jpg,image/jpeg,image/png,image/gif]'
+					]
+				]);
+				//$file_type = $imageFile->getClientMimeType();
+				//var_dump($file_type);
+				if($validated){
+					echo "ok<br>";
+					//return true;
+				}else{
+					echo "pasa por aca<br>";
+					var_dump($this->validator->listErrors());
+					return false;
+				}
+				//echo WRITEPATH;
+				//$newName = $imageFile->getRandomName();
+				//$imageFile->move(WRITEPATH.'uploads/imgComercios/logoComercio/'.$id, $newName);//con el $id, estoy indicando que comercio tiene que logo
+			}
+		}
+
 	}
 	//--------------------------------------------------------------------
 

@@ -68,26 +68,23 @@ class Comercio extends BaseController
 			'activo'=> 0,
 		);
 		//aca iria la carga de imagenes
-
-		if($modelComercio->insert($data)===false){
-			var_dump($modelComercio->errors());
-			$this->crear();
-		}else{
-		$idLogo = $modelComercio->insertID;//obtengo el ultimo id, para realizar la carga del logo y de la foto
 		$imageFile = $this->request->getFile('logo');
-		$file_type = $imageFile->getClientMimeType();	
-		$dataLogo = array(
-			'id_comercio' => $idLogo,
-			'tipo_imagen' => $file_type,
-			'imagen' => $imageFile
-		);
-		$modelLogo->insert($dataLogo);
-		return redirect()->route('comercio-admin');
-		//print_r($id);
-
-		//aca tmb puede ir la carga de imagenes
-		//$this->_uploadLogo($id); //aca comente para ver si puedo llamar desde otro lado o lo q sea zzzzzzzzZZZZZZZZ
-        //    return redirect()->route('comercio-admin');
+		if($imageFile->isValid()){
+		echo "entro por aca";
+			if($modelComercio->insert($data)===false){//se inserta y si no es falso inserta el logo llendose por el else
+				var_dump($modelComercio->errors());
+				$this->crear();
+			}else{
+				$idLogo = $modelComercio->insertID;//obtengo el ultimo id, para realizar la carga del logo y de la foto
+				$file_type = $imageFile->getClientMimeType();	
+				$dataLogo = array(
+					'id_comercio' => $idLogo,
+					'tipo_imagen' => $file_type,
+					'imagen' => $imageFile
+				);
+				$modelLogo->insert($dataLogo);
+				return redirect()->route('comercio-admin');
+			}
 		}	
 		
 	}

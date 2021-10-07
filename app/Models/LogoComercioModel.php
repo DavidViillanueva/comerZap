@@ -17,4 +17,10 @@ class LogoComercioModel extends Model{
     protected $updatedField  = 'updated_at'; //habria que crear estas columnas para llevar un seguimiento de la fecha de modificacion
     //protected $deletedField  = 'deleted_at';
     //solo hago validacion de algunos campos
+    protected $validationMessages = [
+        'logo' => [
+            'uploaded[logo]',
+            'mime_in[logo,image/jpg,image/jpeg,image/png,image/gif]'
+        ]
+    ];
 }

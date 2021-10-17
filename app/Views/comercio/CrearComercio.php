@@ -4,7 +4,7 @@
 <div>
     <h1>Crear Comercios</h1>
 </div>
-<form action="<?php base_url() ?>/comercio/guardar" method="post">
+<form action="<?php base_url() ?>/comercio/guardar" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <div class="row">
             <div class="col-12 col-sm-6">
@@ -62,7 +62,14 @@
                 <label for="">Descripción: </label>
                 <input type="text" class="form-control" name="descripcion" id="" value=<?php $desc; ?>>
             </div>
-            
+            <div class="col-12 col-sm-6">
+                <label for="">Cargar Logo Comercio: </label><br>
+                <input class="form-control" type="file" name="logo"/>
+            </div>
+            <!--<div class="col-12 col-sm-6">
+                <label for="">Cargar Foto Comercio: </label><br>
+                <input type="file" name="foto">
+            </div>-->
         </div> 
     </div>
     

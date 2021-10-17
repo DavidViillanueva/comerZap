@@ -12,7 +12,44 @@ class DomicilioModel extends Model {
     //protected $useSoftDeletes = true;
     protected $allowedFields = ['id_localidad', 'barrio','calle', 'altura','piso', 'departamento','postal'];
 
-    protected $validationRules    = [];
+    protected $validationRules    = [
+        'barrio' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar un barrio.'
+            ]
+        ],
+        'calle' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar una calle.'
+            ]
+        ], 
+        'altura' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar una altura.'
+            ]
+        ],
+        'piso' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar un piso.'
+            ]
+        ], 
+        'departamento' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar un departamento.'
+            ]
+        ],
+        'postal' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar un codigo postal.'
+            ]
+        ]
+    ];
     protected $validationMessages = [];
     protected $skipValidation     = false;
 

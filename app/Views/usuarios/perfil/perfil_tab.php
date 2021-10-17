@@ -3,7 +3,6 @@
     <h1>Hola <?php print_r(user()->username) ?>!</h1>
     
     <?php if( $isComplete ):  ?>
-
         <div class="row">
             <div class="col-sm-6">
                 <div class="card text-start">
@@ -20,7 +19,7 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Editar</a>
+                        <a href="<?php echo base_url(); ?>/profile/editProfile/personalEdit/ <?= esc(session('persona.id_persona'),'url') ?>" class="btn btn-primary">Editar</a>
                     </div>
                 </div>
             </div>
@@ -41,15 +40,13 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Editar</a>
+                        <a href="<?php echo base_url(); ?>/profile/editProfile/addressEdit/ <?= esc(session('domicilio.id_domicilio'),'url') ?>" class="btn btn-primary">Editar</a>
                     </div>
                 </div>
             </div>
 
 
-        </div>
-
-        
+        </div> 
     <?php else: ?>
         <h4>Bienvenido a tu pagina de usuario</h4>
         <p>
@@ -154,4 +151,6 @@
         </div>
         
     <?php endif; ?>
+
+
     

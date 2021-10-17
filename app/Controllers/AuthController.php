@@ -49,7 +49,7 @@ class authController extends BaseController {
     }
     
     public function completeProfile () {
-        log_message(3,'la concha de tu madre');
+        
         $personasModel = new personaModel($db);
         $domicilioModel = new domicilioModel($db);
         $data = [
@@ -133,8 +133,6 @@ class authController extends BaseController {
                         'departamento' => $data['dpto'],
                         'postal' => $data['postal']
                     ]);
-
-                    log_message(3,$domicilioId);
                     if( $domicilioId !== false  ) {
                         $personaId = $personasModel->insert([
                             'id_users' => user()->id,
@@ -178,17 +176,76 @@ class authController extends BaseController {
         echo view('footer');
     }
 
+    public function editProfileScreen ($type = null,$id = null) {
+        // El id puede ser del domicilio o de la persona, se maneja en la ruta que se manda
+        $personasModel = new personaModel($db);
+        $domicilioModel = new domicilioModel($db);
 
-    // public function getLocalidades () {
-    //     $localidades = "";
-    //     $ModelLocalidades = new LocalidadesModel($db);
+        $data = [
+            'type' => $type
+        ];
 
-    //     $id = $this->request->getVar('id_provincia');
 
-    //     if( $id) {
-    //         $localidades = $ModelLocalidades->getLocalidades($id);
+        if ( $this->request->getMethod() === 'get' ) {
+            if( $type !== 'personalEdit' && $type !== 'addressEdit') {
+                return redirect()->back();
+            }
+    
+            if( $id !== null && $type == 'addressEdit') {
+                $domicilio = $domicilioModel->getDomicilio( $id );
+    
+                if( $domicilio == false ) {
+                    return redirect()->back();
+                }
+    
+                $data ['domicilio'] = $domicilio;
+            }
+    
+            echo view('header');
+            echo view('usuarios/perfil/edit',$data);
+            echo view('footer');
+        } else {
+            if( $this->request ->getMethod() === 'post') {
+                if( $type !== 'personalEdit' && $type !== 'addressEdit') {
+                    return redirect()->back();
+                }
 
-    //         return $this->response->setJSON($localidades);
-    //     }
-    // }
+                if( $type === 'personalEdit' ) {
+                    $editedData = [
+                        'nombre'  => $this->request->getPostGet('nombre'),
+                        'apellido' => $this->request->getPostGet('apellido'),
+                        'dni' => $this->request->getPostGet('dni'),
+                        'fecha_nacimiento'  => $this->request->getPostGet('fechaNacimiento')
+                    ];
+                    
+                    if ( $personasModel->update($id,$editedData) === false ) {
+                        return redirect()->back()->withInput()->with('errors', $personasModel->errors());;
+                    } else {
+                        return redirect()->route('profile');
+                    }
+
+                }
+
+                if( $type === 'addressEdit' ){
+                    log_message(3, $id);
+                    $editedData = [
+                        'calle' => $this->request->getPostGet('calle'),
+                        'barrio' => $this->request->getPostGet('barrio'),
+                        'altura' => $this->request->getPostGet('altura'),
+                        'piso'  => $this->request->getPostGet('piso'),
+                        'departamento'  => $this->request->getPostGet('dpto'),
+                        'postal'  => $this->request->getPostGet('postal')
+                    ];
+
+                    if ( $domicilioModel->update($id,$editedData) === false ) {
+                        return redirect()->back()->withInput()->with('errors', $domicilioModel->errors());;
+                    } else {
+                        return redirect()->route('profile');
+                    }
+                }
+            }
+        }
+    }
+
+    
 }

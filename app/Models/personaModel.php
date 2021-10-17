@@ -8,56 +8,32 @@ class personaModel extends Model {
     protected $primaryKey = 'id_persona';
 
     protected $allowedFields = ['id_users','nombre','apellido','id_domicilio','DNI','fecha_nacimiento','mail','genero'];
-    // protected $validationRules = [
-    //     'nombre' => [
-    //         'rules' => 'required',
-    //         'errors' => [
-    //             'required' => 'Debes ingresar un nombre.'
-    //         ]
-    //     ],
-    //     'apellido' => [
-    //         'rules' => 'required',
-    //         'errors' => [
-    //             'required' => 'Debes ingresar un apellido.'
-    //         ]
-    //     ],
-    //     'dni' => [
-    //         'rules' => 'required',
-    //         'errors' => [
-    //             'required' => 'Debes ingresar un dni.'
-    //         ]
-    //     ],
-    //     'fechaNacimiento' => [
-    //         'rules' => 'required',
-    //         'errors' => [
-    //             'required' => 'Debes ingresar un fechaNacimiento.'
-    //         ]
-    //     ],
-    //     'barrio' => [
-    //         'rules' => 'required',
-    //         'errors' => [
-    //             'required' => 'Debes ingresar un barrio.'
-    //         ]
-    //     ],
-    //     'calle' => [
-    //         'rules' => 'required',
-    //         'errors' => [
-    //             'required' => 'Debes ingresar un calle.'
-    //         ]
-    //     ],
-    //     'altura' => [
-    //         'rules' => 'required',
-    //         'errors' => [
-    //             'required' => 'Debes ingresar un altura.'
-    //         ]
-    //     ],
-    //     'postal' => [
-    //         'rules' => 'required',
-    //         'errors' => [
-    //             'required' => 'Debes ingresar un postal.'
-    //         ]
-    //     ]
-    // ];
+    protected $validationRules = [
+        'nombre' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar un nombre.'
+            ]
+        ],
+        'apellido' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar un apellido.'
+            ]
+        ],
+        'dni' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar un dni.'
+            ]
+        ],
+        'fecha_nacimiento' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Debes ingresar un fechaNacimiento.'
+            ]
+        ]
+    ];
 
 
     

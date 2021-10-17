@@ -39,6 +39,8 @@ $routes->post('/localidades','AuthController::getLocalidades');
 // Esta ruta tiene un middlelware
 $routes->get('/profile','AuthController::profile', [ 'as' => 'profile' , 'filter' => 'authFilter']);
 $routes->post('/profile/complete','AuthController::completeProfile',['as' => 'completeprofile', 'filter' => 'authFilter']);
+$routes->match(['get', 'post'],'/profile/editProfile/(:segment)/(:segment)','AuthController::editProfileScreen/$1/$2');
+$routes->get('/profile/editProfile','AuthController::editProfileScreen',['as' => 'editProfile','filter' => 'authFilter']);
 
 $routes->get('/servicio', 'Servicio::index');
 $routes->get('/servicio', 'ServicioAdmin::index');

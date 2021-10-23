@@ -5,6 +5,7 @@ use CodeIgniter\HTTP\Message;
 use CodeIgniter\Controller;
 use App\Models\ProvinciasModel;
 use App\Models\LocalidadesModel;
+use App\Models\ProveedorModel;
 use App\Models\personaModel;
 use App\Models\DomicilioModel;
 
@@ -27,6 +28,7 @@ class authController extends BaseController {
 
         $personas = new personaModel($db);
         $domicilioModel = new DomicilioModel($db);
+        $proveedorModel = new ProveedorModel($db);
         
         $isComplete = $personas->isComplete(user()->id);
         $data = [
@@ -37,6 +39,9 @@ class authController extends BaseController {
         if( $isComplete ){
             $persona = $personas->getPersonaByUser(user()->id);
             $domicilio = $domicilioModel->getDomicilio( $persona['id_domicilio'] );
+            $isProveedor = $proveedorModel->isProveedor($persona['id_persona']);
+
+            $data['isProveedor'] = $isProveedor;
     
             
             $_SESSION['persona'] = $persona;

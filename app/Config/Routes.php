@@ -37,10 +37,14 @@ $routes->setAutoRoute(true);
 $routes->post('/localidades','AuthController::getLocalidades');
 
 // Esta ruta tiene un middlelware
+// Rutas Perfil
 $routes->get('/profile','AuthController::profile', [ 'as' => 'profile' , 'filter' => 'authFilter']);
 $routes->post('/profile/complete','AuthController::completeProfile',['as' => 'completeprofile', 'filter' => 'authFilter']);
 $routes->match(['get', 'post'],'/profile/editProfile/(:segment)/(:segment)','AuthController::editProfileScreen/$1/$2');
 $routes->get('/profile/editProfile','AuthController::editProfileScreen',['as' => 'editProfile','filter' => 'authFilter']);
+
+// Rutas proveedor
+$routes->match(['get','post'],'/proveedor/newproveedor','ProveedorController::createProveedor',['as' => 'createproveedor','filter' => 'authFilter']);
 
 $routes->get('/servicio', 'Servicio::index');
 $routes->get('/servicio', 'ServicioAdmin::index');

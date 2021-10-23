@@ -534,6 +534,13 @@ mark,
   display: flex;
 }
 
+.container-button {
+  height: 300px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
 code {
   font-size: 87.5%;
   color: #e83e8c;

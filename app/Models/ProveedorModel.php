@@ -26,4 +26,17 @@ class ProveedorModel extends Model {
         return $this->findAll();
     }
 
+    public function isProveedor ( $id_persona = false ) {
+        // Para determinar si la persona que esta usando el sistema es proveedor
+        log_message(3,$id_persona);
+        $data = false;
+        if( $id_persona ) {
+            $data = ( $this->asArray()
+                ->where(['id_persona' => $id_persona])
+                ->first() ) ? true : false;
+        }
+
+        return $data;
+    }
+
 }

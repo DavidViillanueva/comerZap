@@ -83,6 +83,7 @@
                                     </tr>
                                 </tbody>
                             <?php } ?>
+                           
                         </table>
                         <!-- Hay que agregar paginación-->
                         <?php echo $paginador->links(); ?>

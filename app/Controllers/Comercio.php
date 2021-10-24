@@ -36,9 +36,7 @@ class Comercio extends BaseController
 		$imgC = $this->imgComercios->findAll();
 		$paginador = $this->comercios->pager;
 		$data = ['titulo'=>'Comercios Administrador', 'datos'=>$comercios, 'paginador'=>$paginador, 'imgCom'=>$imgC];
-
 		echo view('header');
-		//echo view('comercio/VistaComercio', $comercios);
 		echo view('comercio/comercioAdmin', $data);
 		echo view('footer');
 	}
@@ -152,7 +150,8 @@ class Comercio extends BaseController
 					$modelLogo = new LogoComercioModel($db);
 					$file_type = $imageFile->getClientMimeType();
 					$newName = $imageFile->getRandomName();
-					$imageFile->move(WRITEPATH.'uploads/imgComercios/logoComercio/', $newName);//con el $id, estoy indicando que comercio tiene que logo
+					//$imageFile->move(WRITEPATH.'uploads/imgComercios/logoComercio/', $newName);//con el $id, estoy indicando que comercio tiene que logo
+					$imageFile->move(ROOTPATH.'public/uploads', $newName);
 					$dataLogo = array(
 						'id_comercio' => $id,
 						'tipo_imagen' => $file_type,

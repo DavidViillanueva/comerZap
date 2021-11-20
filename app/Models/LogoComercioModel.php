@@ -4,7 +4,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class LogoComercioModel extends Model{
-    protected $table = 'logo_comercio';
+    protected $table = 'logo_comercio_new';
     protected $primaryKey = 'id_logo_comercio';
     protected $useAutoIncrement = true;  
     protected $returnType     = 'array';

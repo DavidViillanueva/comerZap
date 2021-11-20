@@ -2,6 +2,7 @@
     <title><?php echo $titulo; ?></title>
 </head>
 
+
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -15,15 +16,15 @@
                         Servicios
                     </a>
                     <a class="nav-link" href="<?php echo base_url(); ?>/comercio-admin">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-store-alt"></i></div>
                         Comercios
                     </a>
                     <a class="nav-link" href="#">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
                         Usuarios
                     </a>
                     <a class="nav-link" href="#">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
                         Auditoria
                     </a>
 
@@ -60,6 +61,7 @@
                                 <th>Mail</th>
                                 <th>Descripcion</th>
                                 <th>Estado</th>
+                                <th>Logo</th>
                                 <th>Borrar</th>
                                 <th>Modificar</th>
                                 </tr>
@@ -78,11 +80,21 @@
                                         <td><?= $datos_item['mail']; ?></td>
                                         <td><?= $datos_item['descripcion']; ?></td>
                                         <td><?= $datos_item['activo']; ?></td>
+                                        <td>
+                                            <?php foreach($imgCom as $img){
+                                                if($img['id_comercio']==$datos_item['id_comercio']){
+                                                    //echo "paso por aca?";
+                                                    $imagen = $img['imagen'];
+                                                }
+                                            }?>
+                                            <img src="<?= base_url('uploads/'. $imagen)?>" width="50" height="50">
+                                        </td>
                                         <td><a href="<?php echo base_url() . '/comercio/editar/'.$datos_item['id_comercio']; ?>" class="btn btn-warning">Editar Comercio</a></td>
                                         <td><a href="<?php echo base_url(); ?>/comercio/borrar?id=<?php echo $datos_item['id_comercio']; ?>" class="btn btn-danger">Borrar Comercio</a></td>
                                     </tr>
                                 </tbody>
                             <?php } ?>
+                           
                         </table>
                         <!-- Hay que agregar paginación-->
                         <?php echo $paginador->links(); ?>

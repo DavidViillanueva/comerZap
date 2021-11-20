@@ -1,8 +1,8 @@
 .register_block{
     width: 100%;
     /* height: auto; */
-    background: #f2f2f2;
-    color: black;
+    background: var(--bgLightCZ);
+    color: var(--text-color);
     position: relative;
     box-sizing: border-box;
     border-radius: 10px;

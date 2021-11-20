@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/fragments/header.css">
     <!-- Estilos FontAwesome -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/all.min.css">
+
+    <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/proveedor/style_registro_comercio.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/proveedor/style-registrarse.css"> -->
 </head>
 <body>
 
@@ -49,8 +52,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Cuenta</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="nav-link" href="<?= route_to('logout') ?>">Logout</a></li>
                                     <li><a class="nav-link" href="<?= route_to('profile') ?>">Perfil</a></li>
+                                    <li><a class="nav-link" href="<?= route_to('logout') ?>">Logout</a></li>
                                 </ul>
                             </li>
                         <?php else :?>

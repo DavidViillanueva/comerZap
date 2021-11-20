@@ -1,0 +1,28 @@
+
+.register_block .delivery{
+    margin-top: 15px;
+    display: flex;
+}
+
+.register_block .bottom .text{
+    width: 100%;
+}
+.register_block .bottom{
+    width: 100%;
+}
+
+
+@media (max-width:750px){
+    .register_block .columna2{
+        margin-top: 15px;
+    }
+
+    .register_block textarea{
+        height: 60px;
+        width: 100%;
+    }
+
+    .register_block .bottom .text{
+        margin-bottom: 15px;
+    }
+}

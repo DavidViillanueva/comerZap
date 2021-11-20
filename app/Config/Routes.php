@@ -45,6 +45,7 @@ $routes->get('/profile/editProfile','AuthController::editProfileScreen',['as' =>
 
 // Rutas proveedor
 $routes->match(['get','post'],'/proveedor/newproveedor','ProveedorController::createProveedor',['as' => 'createproveedor','filter' => 'authFilter']);
+$routes->match(['get','post'],'/proveedor/newproveedor/(:segment)','ProveedorController::createProveedor2/$1',['as' => 'createproveedor','filter' => 'authFilter']);
 
 $routes->get('/servicio', 'Servicio::index');
 $routes->get('/servicio', 'ServicioAdmin::index');

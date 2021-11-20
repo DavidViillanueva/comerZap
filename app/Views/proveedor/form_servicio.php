@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/proveedor/style_registro_comercio.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/styles/fragments/formularios.css">
 </head>
-<body>
-	<main class="main">
-		<div class="register_block">
+<div class="form_centerContainer">
+
+    <div class="register_block">
         <form action="php/registrar_servicio.php" method="post" enctype="multipart/form-data">
                 <div class="header">
                     <h1>Registrate como proveedor de servicio</h1>
@@ -44,8 +44,5 @@
             <div class="bottom">
             </div>
         </form>
-	   </div>
-    </main>
-
-</body>
-</html>
+    </div>
+</div>

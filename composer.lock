@@ -45,6 +45,9 @@
             "suggest": {
                 "ext-fileinfo": "Improves mime type detection for files"
             },
+            "suggest": {
+                "ext-fileinfo": "Improves mime type detection for files"
+            },
             "type": "project",
             "autoload": {
                 "psr-4": {

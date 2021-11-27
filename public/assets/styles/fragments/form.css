@@ -29,3 +29,7 @@ body {
     background-color: --var(--primary-color);
     background: url("../../img/fondo-1080p.jpg") center top;
 }
+
+.check-input {
+    width: 1em !important;
+}

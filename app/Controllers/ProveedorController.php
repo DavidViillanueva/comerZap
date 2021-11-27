@@ -15,19 +15,26 @@ class ProveedorController extends BaseController {
                 'rubros' => $rubros
             ];
 
+            echo view('header');
             if($_SESSION['proveedor']){
                 if( $type == null ) {
-                    echo view('header');
                     echo view('proveedor/createProveedorView',$data);
-                    echo view('footer');
+                }
+                if( $type == "1") {
+                    echo view('proveedor/form_feriante',$data);
+                }
+                if( $type == "2") {
+                    echo view('proveedor/form_servicio',$data);
+                } 
+                if( $type == "3") {
+                    echo view('proveedor/form_comercio',$data);
                 }
             } else {
                 if( $type == null ) {
-                    echo view('header');
                     echo view('proveedor/form_proveedor',$data);
-                    echo view('footer');
                 }
             }
+            echo view('footer');
         }
 
         if( $this->request->getMethod() === 'post') {

@@ -6,7 +6,7 @@
                 <h1>¿Que tipo de proveedor sos?</h1>
             </div>
             <div class="content">
-                <a href="<?php echo base_url(); ?>/ProveedorController/createProveedor/ <?= esc(1,'url') ?>" >
+                <a href="<?=  base_url(); ?>/ProveedorController/createProveedor/ <?= esc(1,'url') ?>" >
                     <div class="type1" title="Comercias cosas hechas con tus propias manos! No contas con habilitacion ni local fisico.">
                             <span class="fas fa-store icon"></span>
                             <h3>Feriante</h3>
@@ -14,7 +14,7 @@
                     </div>
                 </a>
 
-                <a href="<?php echo base_url(); ?>/ProveedorController/createProveedor/ <?= esc(2,'url') ?>" >
+                <a href="<?= base_url(); ?>/ProveedorController/createProveedor/ <?= esc(2,'url') ?>" >
                     <div class="type2" title="Ofreces un servicio en el domicilio de tus clientes. Ej: Electricista.">
                             <span class="fas fa-tools"></span>
                             <h3>Servicio</h3>
@@ -22,7 +22,7 @@
                     </div>
                 </a>
 
-                <a href="<?php echo base_url(); ?>/ProveedorController/createProveedor/ <?= esc(3,'url') ?>" >
+                <a href="<?= base_url(); ?>/ProveedorController/createProveedor/ <?= esc(3,'url') ?>" >
                     <div class="type3" title="Tenes un comercio con habilitacion comercial, local y nombre registrado.">
                             <span class="fas fa-cash-register"></span>
                             <h3>Comercio</h3>

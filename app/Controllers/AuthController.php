@@ -40,6 +40,9 @@ class authController extends BaseController {
             $persona = $personas->getPersonaByUser(user()->id);
             $domicilio = $domicilioModel->getDomicilio( $persona['id_domicilio'] );
             $isProveedor = $proveedorModel->isProveedor($persona['id_persona']);
+            if($isProveedor) {
+                $_SESSION['proveedor'] = $proveedorModel->getProveedor($isProveedor);
+            }
 
             $data['isProveedor'] = $isProveedor;
     
@@ -232,7 +235,6 @@ class authController extends BaseController {
                 }
 
                 if( $type === 'addressEdit' ){
-                    log_message(3, $id);
                     $editedData = [
                         'calle' => $this->request->getPostGet('calle'),
                         'barrio' => $this->request->getPostGet('barrio'),

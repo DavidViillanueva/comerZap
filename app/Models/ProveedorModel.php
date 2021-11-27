@@ -28,15 +28,19 @@ class ProveedorModel extends Model {
 
     public function isProveedor ( $id_persona = false ) {
         // Para determinar si la persona que esta usando el sistema es proveedor
+        // Retorna false si no es proveedor y si no retorna el ID
         log_message(3,$id_persona);
         $data = false;
         if( $id_persona ) {
             $data = ( $this->asArray()
                 ->where(['id_persona' => $id_persona])
-                ->first() ) ? true : false;
+                ->first() ) ? $this->asArray()
+                ->where(['id_persona' => $id_persona])
+                ->first()['id_proveedor'] : false;
         }
 
         return $data;
     }
+
 
 }

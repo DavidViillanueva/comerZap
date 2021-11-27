@@ -47,9 +47,14 @@
             <div class="bottom">
                     <!-- descripcion -->
                     <div class="text">
-                    <label for="descripcion">Descripcion</label>
-                    <textarea name="descripcion" id="descripcion" cols="60" rows="5"></textarea>
+                        <label for="descripcion">Descripcion</label>
+                        <textarea name="descripcion" id="descripcion" cols="60" rows="5"></textarea>
                     </div>
+
+                    <input type="submit" name="submit" value="Direccion">
+
+
+                    <a href="select_type.php"><input type="button" value="Volver"></a>
             </div>
         </form>
     </div>

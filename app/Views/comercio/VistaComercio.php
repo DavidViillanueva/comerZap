@@ -1,6 +1,7 @@
+//esta vista ya no se usa
 <h1>Comercios</h1>
 <body>
-<a href="<?php echo base_url();?>/comercio/create"><input type="button" value="Crear Comercio"></a><br><br>
+<a href="<?php echo base_url();?>/comercio/crear"><input type="button" value="Crear Comercio"></a><br><br>
     <table border = '1' align='center'>
         <tr>
             <th>Id Comercio</th>
@@ -31,12 +32,12 @@
             echo '<td>'.$comercio['descripcion'].'</td>';
             echo '<td>';
         ?>
-            <a type="button" href="<?php echo base_url(); ?>/comercio/delete?id=<?php echo $comercio['id_comercio']; ?>">Borrar Comercio</a>
+            <a type="button" href="<?php echo base_url(); ?>/comercio/borrar?id=<?php echo $comercio['id_comercio']; ?>">Borrar Comercio</a>
         <?php    
             echo '</td>';
             echo '<td>';
         ?>
-            <a type="button" href="<?php echo base_url(); ?>/comercio/edit?id=<?php echo $comercio['id_comercio']; ?>">Editar Comercio</a>
+            <a type="button" href="<?php echo base_url(); ?>/comercio/actualizar?id=<?php echo $comercio['id_comercio']; ?>">Editar Comercio</a>
         <?php
             echo '</td>';
             echo '</tr>';

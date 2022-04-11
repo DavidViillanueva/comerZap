@@ -5,18 +5,18 @@
 
 
 <body>
-<h1><?= esc($titulo); ?></h1>
-<?php if( !empty($datos) && is_array($datos) ) : ?>
+<h1><?= esc($title); ?></h1>
+<?php if( !empty( $commerce) && is_array($commerce) ) : ?>
 
-    <?php foreach( $datos as $datos_item ) : ?>
+    <?php foreach( $commerce as $commerce_item ) : ?>
         <h3> 
-            <?= esc($datos_item['nombre_comercio']); ?> 
+            <?= esc($commerce_item['nombre_comercio']); ?> 
         </h3>
 
         <div>
-            <?= esc($datos_item['descripcion']); ?>
+            <?= esc($commerce_item['descripcion']); ?>
         </div>
-        <p><a href="/<?= esc($datos_item['id_comercio'], 'url'); ?>">Ver Comercio</a></p>
+
     <?php endforeach; ?>
 
 <?php else: ?>
